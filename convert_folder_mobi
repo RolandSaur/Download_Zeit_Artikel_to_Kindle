@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ ! -d $1 ]; then #check if folder is there 
+ echo "error folder not found" 
+else
+
+#create new folder 
+folder=$1/mobi
+if [ ! -d $folder ];then
+  mkdir $folder
+fi
+
+
+#echo $pwd$1
+# go through folder and convert all files
+for file in $1/*.pdf
+do 
+  #echo $file
+  newFile=${file#$1/}
+  newFile=${newFile%.pdf}
+  newFile="Zeit_$newFile"
+  #echo $newFile
+  newFilepath="$folder/$newFile.mobi"
+  #echo $newFilepath
+  ebook-convert $file $newFilepath
+done
+fi

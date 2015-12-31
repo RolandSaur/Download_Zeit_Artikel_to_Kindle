@@ -1,0 +1,12 @@
+#!/bin/bash
+
+cd /tmp
+
+
+if [ ! -d 'zeit' ];then
+  mkdir zeit
+fi
+
+print $1
+cd zeit
+wget $1

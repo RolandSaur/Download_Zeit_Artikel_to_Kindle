@@ -1,0 +1,5 @@
+#!/bin/bash
+
+kindlepath="$(find /media -name "Kindle")"
+
+mv /tmp/zeit/mobi/* $kindlepath
